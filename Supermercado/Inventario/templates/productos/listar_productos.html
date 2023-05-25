@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Productos</h1>
+    
+    <a class="btn btn-info btn-sm " href="{% url 'agregar_productos' %}">Agregar</a>
+</div>
+
+    <table class="table">
+        <tr>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+            <th>Proveedor</th>
+            <th>ACCIONES</th>
+        </tr>
+        {% for producto in productos %}
+            <tr>
+                <td>{{producto.name}}</td>
+                <td>L. {{producto.price}}</td>
+                <td>{{producto.provider}}</td>
+
+               <td>
+                <div class="gap.2 d-flex justify-content-end"></div>
+
+                </div>
+               </td> 
+
+                <td><a href="{% url 'obtener_producto_por_uuid' producto.uuid %}">Ver...</a>
+                <a href="{% url 'actualizar_productos' producto.uuid  %}" class="btn btn-warning btn-sm">Modificar</a>
+          
+
+            
+
+            <td>
+                    
+
+            </td> 
+             <a href="#"></a>
+         </div>
+
+             </td>
+
+         </tr> 
+        {% endfor %}
+    </table> 
+{% endblock %}

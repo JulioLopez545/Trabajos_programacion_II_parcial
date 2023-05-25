@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center">
+<h1>Clientes</h1>
+<a class="btn btn-info btn-sm  " href="{% url 'agregar_cliente' %}">Agregar</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th></th>
+    </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{cliente.person}}</td>
+        <td>{{cliente.address}}</td>
+        <td>{{cliente.phone}}</td>
+
+ 
+        
+        <td>
+
+
+            <div class="gap-2 d-flex justify-content-end ">
+
+                <a href="{% url 'actualizar_clientes' cliente.uuid  %}" class="btn btn-warning btn-sm">Modificar</a>
+                <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+            
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
